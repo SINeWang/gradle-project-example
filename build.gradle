@@ -6,7 +6,7 @@ buildscript {
 
 plugins {
     id 'nebula.dependency-lock' version '4.9.4' apply false
-    id 'net.researchgate.release' version '2.6.0' apply true
+    id 'net.researchgate.release' version '2.6.0' apply false
     id 'org.springframework.boot' version '1.5.2.RELEASE' apply false
     id 'idea'
 }
@@ -69,8 +69,20 @@ subprojects {
         }
     }
 
+    release {
+        tagTemplate = '$name-$version'
+        failOnCommitNeeded = false
+        failOnPublishNeeded = true
+        failOnSnapshotDependencies = true
+        failOnUnversionedFiles = true
+        failOnUpdateNeeded = true
+        revertOnFail = true
 
-
+        git {
+            pushToRemote = 'origin'
+            pushToCurrentBranch = true
+        }
+    }
 }
 
 afterReleaseBuild.dependsOn publish
