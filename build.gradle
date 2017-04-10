@@ -35,12 +35,7 @@ ext {
 
 release {
     tagTemplate = '$name-$version'
-    failOnCommitNeeded = false
-    failOnPublishNeeded = true
-    failOnSnapshotDependencies = true
-    failOnUnversionedFiles = true
-    failOnUpdateNeeded = true
-    revertOnFail = true
+
 
     git {
         pushToRemote = 'origin'
