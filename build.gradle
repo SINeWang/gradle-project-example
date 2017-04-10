@@ -11,6 +11,24 @@ plugins {
     id 'idea'
 }
 
+allprojects {
+    release {
+//        tagTemplate = '$name-$version'
+        failOnCommitNeeded = false
+        failOnPublishNeeded = true
+        failOnSnapshotDependencies = true
+        failOnUnversionedFiles = true
+        failOnUpdateNeeded = true
+        revertOnFail = true
+
+        git {
+            pushToRemote = 'origin'
+            pushToCurrentBranch = true
+        }
+    }
+
+}
+
 group = 'multiprojects'
 
 ext {
@@ -60,19 +78,5 @@ subprojects {
 
     group = ''
 
-    release {
-//        tagTemplate = '$name-$version'
-        failOnCommitNeeded = false
-        failOnPublishNeeded = true
-        failOnSnapshotDependencies = true
-        failOnUnversionedFiles = true
-        failOnUpdateNeeded = true
-        revertOnFail = true
-
-        git {
-            pushToRemote = 'origin'
-            pushToCurrentBranch = true
-        }
-    }
 
 }
