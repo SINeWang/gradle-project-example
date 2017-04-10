@@ -69,5 +69,3 @@ subprojects {
     }
 
 }
-
-afterReleaseBuild.dependsOn publish
