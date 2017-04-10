@@ -58,10 +58,21 @@ subprojects {
         }
     }
 
-    group = 'one.kii.summer'
+    group = ''
 
     release {
-        tagTemplate = '$name-$version'
+//        tagTemplate = '$name-$version'
+        failOnCommitNeeded = false
+        failOnPublishNeeded = true
+        failOnSnapshotDependencies = true
+        failOnUnversionedFiles = true
+        failOnUpdateNeeded = true
+        revertOnFail = true
+
+        git {
+            pushToRemote = 'origin'
+            pushToCurrentBranch = true
+        }
     }
 
 }
