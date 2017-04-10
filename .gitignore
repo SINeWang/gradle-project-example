@@ -1,3 +1,6 @@
+.idea/
+gradle/
+**/build/
 
 # Created by https://www.gitignore.io/api/gradle,intellij+iml,macos,java
 
