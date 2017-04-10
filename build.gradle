@@ -10,20 +10,7 @@ plugins {
     id 'org.springframework.boot' version '1.5.2.RELEASE' apply false
     id 'idea'
 }
-release {
-    tagTemplate = '$name-$version'
-    failOnCommitNeeded = false
-    failOnPublishNeeded = true
-    failOnSnapshotDependencies = true
-    failOnUnversionedFiles = true
-    failOnUpdateNeeded = true
-    revertOnFail = true
 
-    git {
-        pushToRemote = 'origin'
-        pushToCurrentBranch = true
-    }
-}
 
 allprojects {
 
@@ -82,6 +69,20 @@ subprojects {
         }
     }
 
+    release {
+        tagTemplate = '$name-$version'
+        failOnCommitNeeded = false
+        failOnPublishNeeded = true
+        failOnSnapshotDependencies = true
+        failOnUnversionedFiles = true
+        failOnUpdateNeeded = true
+        revertOnFail = true
+
+        git {
+            pushToRemote = 'origin'
+            pushToCurrentBranch = true
+        }
+    }
 
 }
 
