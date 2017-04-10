@@ -11,7 +11,7 @@ plugins {
     id 'idea'
 }
 release {
-    tagTemplate = '$version'
+    tagTemplate = '$name-$version'
     failOnCommitNeeded = false
     failOnPublishNeeded = true
     failOnSnapshotDependencies = true
