@@ -1,0 +1,67 @@
+buildscript {
+    dependencies {
+        classpath 'org.hibernate.build.gradle:gradle-maven-publish-auth:2.0.1'
+    }
+}
+
+plugins {
+    id 'nebula.dependency-lock' version '4.9.4' apply false
+    id 'net.researchgate.release' version '2.6.0' apply false
+    id 'org.springframework.boot' version '1.5.2.RELEASE' apply false
+    id 'idea'
+}
+
+group = 'multiprojects'
+
+ext {
+    springBootVersion = '1.5.2.RELEASE'
+    springFrameworkVersion = '4.3.7.RELEASE'
+    lombokVersion = '1.16.16'
+    junitVersion = '4.12'
+    commonsCodecVersion = '1.10'
+}
+
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'maven'
+    apply plugin: 'maven-publish'
+    apply plugin: 'maven-publish-auth'
+
+    apply plugin: 'nebula.dependency-lock'
+    apply plugin: 'net.researchgate.release'
+
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+
+    dependencies {
+        compileOnly "org.projectlombok:lombok:${lombokVersion}"
+        testCompile "junit:junit:${junitVersion}"
+
+        compile "org.springframework:spring-beans:${springFrameworkVersion}"
+        compile("org.springframework:spring-tx:${springFrameworkVersion}")
+        compile("org.springframework:spring-context:${springFrameworkVersion}")
+        compile("org.slf4j:slf4j-api:1.7.24")
+        testCompile("org.springframework:spring-test:${springFrameworkVersion}")
+    }
+
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                from components.java
+            }
+        }
+        repositories {
+            maven {
+                name "nexus.sinewang.com-snapshots"
+            }
+        }
+    }
+
+    group = 'one.kii.summer'
+
+    release {
+        tagTemplate = '$name-$version'
+    }
+
+}
