@@ -2,4 +2,3 @@ rootProject.name = 'gradle-multi-subprojects-release'
 include 'project-a'
 include 'project-b'
 
-group = 'multiprojects'
