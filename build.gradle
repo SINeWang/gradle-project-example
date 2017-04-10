@@ -6,7 +6,7 @@ buildscript {
 
 plugins {
     id 'nebula.dependency-lock' version '4.9.4' apply false
-    id 'nebula.release' version '4.2.0'
+    id 'net.researchgate.release' version '2.6.0' apply true
     id 'org.springframework.boot' version '1.5.2.RELEASE' apply false
     id 'idea'
 }
@@ -40,6 +40,7 @@ subprojects {
     apply plugin: 'maven-publish-auth'
 
     apply plugin: 'nebula.dependency-lock'
+    apply plugin: 'net.researchgate.release'
 
     sourceCompatibility = 1.7
     targetCompatibility = 1.7
@@ -68,4 +69,8 @@ subprojects {
         }
     }
 
+
+
 }
+
+afterReleaseBuild.dependsOn publish
