@@ -19,6 +19,12 @@ ext {
     commonsCodecVersion = '1.10'
 }
 
+scmVersion {
+    tag {
+        prefix = 'gmsr'
+    }
+}
+
 
 subprojects {
     apply plugin: 'java'
