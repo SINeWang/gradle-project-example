@@ -8,6 +8,10 @@
 
 ## Usage & Features
 
-* gradle publish
+* `gradle publish`
 
 Automatically publish your artifact's to nexus repository, according to the **SUFFIX** of the artifact.
+
+* `gradle cV` or `gradle currentVersion`
+
+Powered by [Axion Release](https://github.com/allegro/axion-release-plugin)
