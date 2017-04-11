@@ -2,7 +2,7 @@
 
 ## PreRequirements
 
-* First of ALL, save [`init.gradle`](http://git.euler.one/snippets/8) to you ~/.gradle/init.gradle
+* First of ALL, save `init.gradle` to you ~/.gradle/init.gradle
 
 * It will use your `.m2/settings.xml` to identify the deployer's credentials.
 
@@ -75,5 +75,61 @@ In your project's **root** `build.gradle`:
             }
          }
     }
+    
+ ## `~/.gradle/init.gradle`
+ 
+     allprojects {
+     
+         apply plugin: 'maven-publish'
+     
+         buildscript {
+             repositories {
+                 mavenLocal()
+                 maven {
+                     url "http://nexus.example.com/repository/maven-public/"
+                 }
+             }
+         }
+     
+         repositories {
+             mavenLocal()
+             maven {
+                 url "http://nexus.example.com/repository/maven-public/"
+             }
+         }
+     
+         publishing {
+             repositories{
+                 maven {
+                     if(project.version.endsWith('-SNAPSHOT')) {
+                         name "nexus.example.com-snapshots"
+                         url "http://nexus.example.com/repository/maven-snapshots/"
+                     } else {
+                         name "nexus.example.com-releases"
+                         url "http://nexus.example.com/repository/maven-releases/"
+                     }
+                 }
+             }
+         }
+         
+     }
 
     
+## `~/.m2/settings.xml`
+
+
+    <settings>
+        <servers>
+            <server>
+                <id>nexus.example.com-snapshots</id>
+                <username>developer</username>
+                <password>developer's password</password>
+            </server>
+            <server>
+                <id>nexus.example.com-releases</id>
+                <username>admin</username>
+                <password>admin's passwprd</password>
+            </server>
+        </servers>
+        
+    </settings>
