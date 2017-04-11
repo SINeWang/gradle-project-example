@@ -1,5 +1,9 @@
 # Gradle Project Example
 
+## Just One Command
+
+`gradle release clean build publish`
+
 ## PreRequirements
 
 * First of ALL, save `init.gradle` to you ~/.gradle/init.gradle
@@ -76,7 +80,7 @@ In your project's **root** `build.gradle`:
          }
     }
     
- ## `~/.gradle/init.gradle`
+## `~/.gradle/init.gradle`
  
      allprojects {
      
