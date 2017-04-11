@@ -21,7 +21,7 @@ ext {
 
 scmVersion {
     tag {
-        prefix = 'gmsr'
+        prefix = 'gpe'
     }
 }
 
