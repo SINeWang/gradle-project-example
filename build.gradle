@@ -10,6 +10,7 @@ plugins {
     id 'idea'
 }
 
+group = 'gmsr'
 
 ext {
     springBootVersion = '1.5.2.RELEASE'
@@ -24,6 +25,11 @@ scmVersion {
         prefix = 'gmsr'
     }
 }
+
+allprojects {
+    project.version = scmVersion.version
+}
+
 
 
 subprojects {
