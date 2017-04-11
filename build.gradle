@@ -32,8 +32,6 @@ allprojects {
 
 }
 
-
-
 subprojects {
     buildscript {
         dependencies {
@@ -47,8 +45,6 @@ subprojects {
 
     sourceCompatibility = 1.7
     targetCompatibility = 1.7
-
-
 
     dependencies {
         compileOnly "org.projectlombok:lombok:${lombokVersion}"
