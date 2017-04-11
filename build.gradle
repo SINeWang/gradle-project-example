@@ -10,7 +10,6 @@ plugins {
     id 'idea'
 }
 
-group = 'gmsr'
 
 ext {
     springBootVersion = '1.5.2.RELEASE'
@@ -30,6 +29,7 @@ allprojects {
     project.version = scmVersion.version
     apply plugin: 'maven-publish-auth'
 
+    group = 'gradle-project-example'
 }
 
 subprojects {
